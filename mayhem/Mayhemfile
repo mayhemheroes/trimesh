@@ -1,0 +1,9 @@
+project: trimesh
+target: fuzz-mesh
+testsuite:
+    - file://mayhem/testsuite
+
+cmds:
+  - cmd: /src/mayhem/fuzz_mesh.py
+    libfuzzer: true
+    timeout: 15
