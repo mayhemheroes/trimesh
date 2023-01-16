@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributing To Trimesh &mdash; trimesh 3.18.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Writing Docker Images" href="docker.html" />
+    <link rel="prev" title="Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> trimesh
+          </a>
+              <div class="version">
+                3.18.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#developer-quick-start">Developer Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#automatic-formatting">Automatic Formatting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#general-tips">General Tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#helpful">Helpful</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#try-to-avoid">Try To Avoid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Contributing To Trimesh</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mikedh/trimesh/blob/main/docs/contributing.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contributing-to-trimesh">
+<h1>Contributing To Trimesh<a class="headerlink" href="#contributing-to-trimesh" title="Permalink to this heading"></a></h1>
+<p>Pull requests are always super welcome! Trimesh is a relatively small open source project and really benefits from the bugfixes, features, and other stuff the 100+ contributors have PR’d, so thanks!</p>
+<section id="developer-quick-start">
+<h2>Developer Quick Start<a class="headerlink" href="#developer-quick-start" title="Permalink to this heading"></a></h2>
+<p>Here’s how I set up a new environment and write functions. It’s not necessary to do it this way but it does make some things easier! If you don’t have a “virtual environment” solution there’s plenty of ways to do this (poetry, pipenv, conda, etc.) but I just use the <code class="docutils literal notranslate"><span class="pre">venv</span></code> module built into the standard library:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the venv</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">~/</span><span class="n">myenv</span>
+
+<span class="c1"># on linux this will use this venv</span>
+<span class="c1"># every time you open a new terminal</span>
+<span class="n">echo</span> <span class="s2">&quot;source ~/myenv/bin/activate&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>With a virtual environment so pip doesn’t dump files everywhere you can install some stuff. The <code class="docutils literal notranslate"><span class="pre">flake8-no-implicit-concat</span></code> adds a rule which disallows strings on different lines with no comma being concatenated as this is pretty much always a bug.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">autopep8</span> <span class="n">flake8</span> <span class="n">flake8</span><span class="o">-</span><span class="n">no</span><span class="o">-</span><span class="n">implicit</span><span class="o">-</span><span class="n">concat</span> <span class="n">codespell</span> <span class="n">pyinstrument</span> <span class="n">ipython</span>
+</pre></div>
+</div>
+<p>If you’re planning on editing trimesh you might want to fork it via the Github interface, then install it via an editable pip install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># you probably want to clone your fork</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">mikedh</span><span class="o">/</span><span class="n">trimesh</span><span class="o">.</span><span class="n">git</span>
+
+<span class="c1"># do an editable install so you can experiment</span>
+<span class="n">cd</span> <span class="n">trimesh</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>I pretty much always start with an interactive terminal (i.e. a “REPL”) inside a stub function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">trimesh</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">fancy_function</span><span class="p">(</span><span class="n">blah</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">blah</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+       <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;this input was goofy!&#39;</span><span class="p">)</span>
+
+    <span class="c1"># do some obvious operations and whatnot</span>
+    <span class="n">dots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">blah</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+    <span class="c1"># get a REPL inside my function so I can write each line</span>
+    <span class="c1"># with the context of the function, copy paste the lines</span>
+    <span class="c1"># in and at the end return the value and remove the embed</span>
+    <span class="kn">from</span> <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">embed</span>
+    <span class="n">embed</span><span class="p">()</span>
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># print out all the debug messages so we can see</span>
+    <span class="c1"># if there&#39;s something going on we need to look at</span>
+    <span class="n">trimesh</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">attach_to_log</span><span class="p">()</span>
+
+    <span class="c1"># I like pyinstrument as it&#39;s a relatively low-overhead sampling</span>
+    <span class="c1"># profiler and has nice looking nested print statements compared</span>
+    <span class="c1"># to cProfile or others.</span>
+    <span class="kn">import</span> <span class="nn">pyinstrument</span>
+    
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">with</span> <span class="n">pyinstrument</span><span class="o">.</span><span class="n">Profiler</span><span class="p">()</span> <span class="k">as</span> <span class="n">pr</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">fancy_function</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">pr</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>When you remove the embed and see the profile result you can then tweak the lines that are slow before finishing the function.</p>
+<section id="automatic-formatting">
+<h3>Automatic Formatting<a class="headerlink" href="#automatic-formatting" title="Permalink to this heading"></a></h3>
+<p>Before opening a pull request I run some auto-formatting rules which will run autopep8 and yell at you about any flake8 rule violations. There is a convenience script baked into <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to run all of these which you can run with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="nb">format</span>
+</pre></div>
+</div>
+<p>This is equivalent to running <code class="docutils literal notranslate"><span class="pre">codespell</span></code>, <code class="docutils literal notranslate"><span class="pre">autopep8</span></code>, and <code class="docutils literal notranslate"><span class="pre">flake8</span></code> on trimesh, examples, and tests. You can also run it yourself with these options:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">autopep8</span> <span class="o">--</span><span class="n">recursive</span> <span class="o">--</span><span class="n">verbose</span> <span class="o">--</span><span class="ow">in</span><span class="o">-</span><span class="n">place</span> <span class="o">--</span><span class="n">aggressive</span> <span class="n">trimesh</span>
+<span class="n">flake8</span> <span class="n">trimesh</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="general-tips">
+<h2>General Tips<a class="headerlink" href="#general-tips" title="Permalink to this heading"></a></h2>
+<p>Python can be fast but only when you use it as little as possible. In general, if you ever have a block which loops through faces and vertices it will be basically unusable with even moderately sized meshes. All operations on face or vertex arrays should be vectorized numpy operations unless absolutely unavoidable. Profiling helps figure out what is slow, but some general advice:</p>
+<section id="helpful">
+<h3>Helpful<a class="headerlink" href="#helpful" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Run your test script with <code class="docutils literal notranslate"><span class="pre">ipython</span> <span class="pre">-i</span> <span class="pre">newstuff.py</span></code> and profile with magic, i.e. <code class="docutils literal notranslate"><span class="pre">%timeit</span> <span class="pre">var.split()</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">np.fromstring</span></code>, <code class="docutils literal notranslate"><span class="pre">np.frombuffer</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">str.split</span></code> or <code class="docutils literal notranslate"><span class="pre">np.fromstring</span></code>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="mi">1000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">209</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">139</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use giant format strings rather than looping, appending, or even iterator joining:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10000</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">array</span><span class="p">)</span>
+<span class="mi">10</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">60.3</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+<span class="mi">10</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">34.3</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Sometimes you can use sparse matrices to replace a loop and get a huge speedup. <a class="reference external" href="https://github.com/mikedh/trimesh/blob/master/trimesh/geometry.py#L186-L203">Here’s the same algorithm implemented two ways, looping and sparse dot products.</a></p></li>
+<li><p>In tight loops, <code class="docutils literal notranslate"><span class="pre">array.sum(axis=1)</span></code> often pops up as the slowest thing. This can be replaced with a dot product of ones, which are very optimized can be substantially faster:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">157</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">25.8</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If you can use it, <code class="docutils literal notranslate"><span class="pre">np.concatenate</span></code> is usually faster than <code class="docutils literal notranslate"><span class="pre">np.vstack</span></code>, <code class="docutils literal notranslate"><span class="pre">np.append</span></code>, or <code class="docutils literal notranslate"><span class="pre">np.column_stack</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">seq</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="mi">100</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">3.48</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="mi">100</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">2.33</span> <span class="n">ms</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Sometimes <code class="docutils literal notranslate"><span class="pre">np.bincount</span></code> can be used instead of <code class="docutils literal notranslate"><span class="pre">np.unique</span></code> for a substantial speedup:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">45</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">46</span><span class="p">]:</span> <span class="kc">True</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">47</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">5.81</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">48</span><span class="p">]:</span> <span class="o">%</span><span class="n">timeit</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">10000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">31.8</span> <span class="n">µs</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+</div>
+</section>
+<section id="try-to-avoid">
+<h3>Try To Avoid<a class="headerlink" href="#try-to-avoid" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Looping in general, and <em>especially</em> looping on arrays that could have many elements(i.e. vertices and faces). The loop overhead is very high in Python. If necessary to loop you may find that list comprehensions are quite a bit faster (though definitely profile first!) probably for scoping reasons.</p></li>
+<li><p>Boolean operations (i.e. intersection, difference, union) on meshes may seem like the answer, but they are nearly always flaky and slow. The best answer is usually to restructure your problem to use some form of vector checks if possible (i.e. dot products, ray tests, etc). Look at <code class="docutils literal notranslate"><span class="pre">trimesh.intersections</span></code> for an example of a problem that could have used a boolean operation but didn’t.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="docker.html" class="btn btn-neutral float-right" title="Writing Docker Images" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Michael Dawson-Haggerty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161434837-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-161434837-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; trimesh 3.18.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Basic Installation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> trimesh
+          </a>
+              <div class="version">
+                3.18.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Github</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#conda-packages">Conda Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu-debian-notes">Ubuntu-Debian Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependency-overview">Dependency Overview</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mikedh/trimesh/blob/main/docs/install.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>The only thing required to install <code class="docutils literal notranslate"><span class="pre">trimesh</span></code> is
+<a class="reference external" href="http://www.numpy.org/">numpy</a>.</p>
+<p>All other dependencies are ‘soft,’ or trimesh will raise the exceptions (usually but not always an <code class="docutils literal notranslate"><span class="pre">ImportError</span></code>) at runtime if a function is called that requires a package that isn’t installed. If you do the most basic install of <code class="docutils literal notranslate"><span class="pre">trimesh</span></code> it will only install <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">trimesh</span>
+</pre></div>
+</div>
+<p>This will enable you to load most formats into numpy arrays: STL, PLY, OBJ, GLB, GLTF.</p>
+<p>If you’d like most soft dependencies which should install cleanly on Mac, Windows, and Linux, you can use the <code class="docutils literal notranslate"><span class="pre">easy</span></code> pip extra:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">trimesh</span><span class="p">[</span><span class="n">easy</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Or if you want the full experience, you can try the <code class="docutils literal notranslate"><span class="pre">all</span></code> extra, where packages may only be available for Linux:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">trimesh</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="conda-packages">
+<h2>Conda Packages<a class="headerlink" href="#conda-packages" title="Permalink to this heading"></a></h2>
+<p>If you prefer a <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment, <code class="docutils literal notranslate"><span class="pre">trimesh</span></code> is available on <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> (<a class="reference external" href="https://github.com/conda-forge/trimesh-feedstock">trimesh-feedstock repo</a>)</p>
+<p>If you install <a class="reference external" href="https://conda.io/docs/install/quick.html">Miniconda</a> you can then run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">trimesh</span>
+</pre></div>
+</div>
+</section>
+<section id="ubuntu-debian-notes">
+<h2>Ubuntu-Debian Notes<a class="headerlink" href="#ubuntu-debian-notes" title="Permalink to this heading"></a></h2>
+<p>Blender and openSCAD are soft dependencies used for boolean operations with subprocess, you can get them with <code class="docutils literal notranslate"><span class="pre">apt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openscad</span> <span class="n">blender</span>
+</pre></div>
+</div>
+</section>
+<section id="dependency-overview">
+<h2>Dependency Overview<a class="headerlink" href="#dependency-overview" title="Permalink to this heading"></a></h2>
+<p>Trimesh has a lot of soft-required upstream packages. We try to make sure they’re active and big-ish. Here’s a quick summary of what they’re used for.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Alternatives</p></th>
+<th class="head"><p>Level</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></td>
+<td><p>The base container for fast array types.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">required</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy</span></code></p></td>
+<td><p>Provides convex hulls (<code class="docutils literal notranslate"><span class="pre">scipy.spatial.ConvexHull</span></code>), fast graph operations (<code class="docutils literal notranslate"><span class="pre">scipy.sparse.csgraph</span></code>), fast nearest-point queries (<code class="docutils literal notranslate"><span class="pre">scipy.spatial.cKDTree</span></code>), b-spline evaluation (<code class="docutils literal notranslate"><span class="pre">scipy.interpolate</span></code>).</p></td>
+<td><p>Nothing comes to mind, it does a whole heck of a lot.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lxml</span></code></p></td>
+<td><p>Parse XML documents. We use this over the built-in ones as it was slightly faster, and there was a format implemented which was extremely annoying to handle without the ability to get parent nodes (which <code class="docutils literal notranslate"><span class="pre">lxml</span></code> has but built-in XML doesn’t).</p></td>
+<td><p>Standard library’s XML</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">networkx</span></code></p></td>
+<td><p>A nice-to-use pure Python graph library that’s faster than you’d think. It implements DFS, BFS, and the usual FAANG-interview-question algorithms. A lot of the commonly run stuff in trimesh has been re-written to use <code class="docutils literal notranslate"><span class="pre">scipy.sparse.csgraph</span></code> as it’s also an easy install and is way faster in most cases. But if you have a small-ish graph the API for <code class="docutils literal notranslate"><span class="pre">networkx</span></code> is way easier to “grok”.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">graph-tool</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy.sparse.csgraph</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shapely</span></code></p></td>
+<td><p>Bindings to <code class="docutils literal notranslate"><span class="pre">GEOS</span></code> for 2D spatial stuff: “set-theoretic analysis and manipulation of planar features.” It lets you offset, union, and query polygons nicely.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">clipper</span></code> maybe?</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rtree</span></code></p></td>
+<td><p>Query ND rectangles with a spatial tree for a “broad phase” intersection. Used in polygon generation (“given N closed curves which curve contains the other curve?”) and as the broad-phase for the built-in-numpy slow ray query engine.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fcl</span></code> maybe?</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">requests</span></code></p></td>
+<td><p>Do network queries in <code class="docutils literal notranslate"><span class="pre">trimesh.exchange.load_remote</span></code>, will <em>only</em> make network requests when asked</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sympy</span></code></p></td>
+<td><p>Evaluate symbolic algebra</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xxhash</span></code></p></td>
+<td><p>Quickly hash arrays, used for our cache checking</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">msgpack</span></code></p></td>
+<td><p>A serialization method that supports bytes-blobs.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">protobuf</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">chardet</span></code></p></td>
+<td><p>When we fail to decode text as UTF-8 we then check with chardet which guesses an encoding. This lets us load files even with weird encodings.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">colorlog</span></code></p></td>
+<td><p>Printing logs with colors.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pillow</span></code></p></td>
+<td><p>Reading raster images for textures, and rendering polygons into raster images.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">svg.path</span></code></p></td>
+<td><p>Parsing SVG path strings.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jsonschema</span></code></p></td>
+<td><p>Validating our exports for formats like GLTF.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pycollada</span></code></p></td>
+<td><p>Parse <code class="docutils literal notranslate"><span class="pre">dae</span></code> files.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pyglet</span></code></p></td>
+<td><p>OpenGL bindings for our simple debug viewer.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">easy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xatlas</span></code></p></td>
+<td><p>Unwrap meshes to generate UV coordinates quickly and well.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">python-fcl</span></code></p></td>
+<td><p>Do collision queries between meshes</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">glooey</span></code></p></td>
+<td><p>Provide a viewer with widgets.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">meshio</span></code></p></td>
+<td><p>Load additional mesh formats.</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scikit-image</span></code></p></td>
+<td><p>Used in voxel ops</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mapbox-earcut</span></code></p></td>
+<td><p>Triangulate 2D polygons</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">triangle</span></code> which has an unusual license</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">psutil</span></code></p></td>
+<td><p>Get current memory usage, useful for checking to see if we’re going to run out of memory instantiating a giant array</p></td>
+<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Basic Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Michael Dawson-Haggerty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161434837-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-161434837-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

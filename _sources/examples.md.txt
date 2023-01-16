@@ -1,0 +1,32 @@
+# Examples
+Several examples are available as rendered IPython notebooks.
+
+### [texture.ipynb](examples.texture.html)
+Load and display a mesh with UV coordinates and texture images.
+
+### [quick_start.ipynb](examples.quick_start.html)
+A simple example showing various properties of `Trimesh` objects.
+
+### [curvature.ipynb](examples.curvature.html)
+An example of the discrete gaussian curvature measure.
+
+### [ray.ipynb](examples.ray.html)
+An example showing simple ray-mesh queries.
+
+### [shortest.ipynb](examples.shortest.html)
+Given a mesh and two vertex indices find the shortest path between the two vertices while only traveling along edges of the mesh using a distance-weighted graph search.
+
+### [colors.ipynb](examples.colors.html)
+A simple example of loading and displaying a mesh with face colors.
+
+### [nearest.ipynb](examples.nearest.html)
+An example showing nearest point queries, sampling the volume of box primitives generated from the oriented bounds and using PointCloud objects for visualization.
+
+### [section.ipynb](examples.section.html)
+A demonstration of mesh-plane cross-sections, commonly referred to as "slicing" in the context of 3D printing.
+
+### [save_image.ipynb](examples.save_image.html)
+A simple example showing how to save a 3D object as an image
+
+### [integrate.ipynb](examples.integrate.html)
+An example of running integration on a mesh surface.

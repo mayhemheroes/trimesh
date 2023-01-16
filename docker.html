@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing Docker Images &mdash; trimesh 3.18.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh" href="trimesh.html" />
+    <link rel="prev" title="Contributing To Trimesh" href="contributing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> trimesh
+          </a>
+              <div class="version">
+                3.18.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#docker-basics">Docker Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-pip">Using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-prebuilt-images">Using Prebuilt Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-trimesh-images">Building Trimesh Images</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Writing Docker Images</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mikedh/trimesh/blob/main/docs/docker.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="writing-docker-images">
+<h1>Writing Docker Images<a class="headerlink" href="#writing-docker-images" title="Permalink to this heading"></a></h1>
+<section id="docker-basics">
+<h2>Docker Basics<a class="headerlink" href="#docker-basics" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://docs.docker.com/desktop/install/ubuntu/">Docker’s install guide for Ubuntu.</a></p>
+</section>
+<section id="using-pip">
+<h2>Using pip<a class="headerlink" href="#using-pip" title="Permalink to this heading"></a></h2>
+<p>Typically when writing Dockerfiles it is a good idea to use a first-party base images (i.e. <code class="docutils literal notranslate"><span class="pre">debian:buster-slim</span></code>) as derived images can sometimes be unmaintained and unknowable black boxes.</p>
+<p>It should generally work fine to just use a first party base image and install trimesh via <code class="docutils literal notranslate"><span class="pre">pip</span></code> which always has the latest version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">python</span><span class="p">:</span><span class="mf">3.11</span><span class="o">-</span><span class="n">slim</span><span class="o">-</span><span class="n">bullseye</span>
+<span class="n">RUN</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">trimesh</span><span class="p">[</span><span class="n">easy</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="using-prebuilt-images">
+<h2>Using Prebuilt Images<a class="headerlink" href="#using-prebuilt-images" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">trimesh/trimesh</span></code> docker images are based on the offical Python base image, currently <code class="docutils literal notranslate"><span class="pre">python:3.11-slim-bullseye</span></code>. They are built and pushed to Docker Hub automatically in Github Actions for every release.</p>
+<p>If you need some of the more demanding dependencies they can be a good option. The <code class="docutils literal notranslate"><span class="pre">trimesh/trimesh</span></code> images are pushed with three tags: <code class="docutils literal notranslate"><span class="pre">latest</span></code> (for latest :), semantic version (i.e. <code class="docutils literal notranslate"><span class="pre">3.15.5</span></code>), or git short hash (i.e. <code class="docutils literal notranslate"><span class="pre">1c6178d</span></code>). These images include <code class="docutils literal notranslate"><span class="pre">embree</span></code> and <code class="docutils literal notranslate"><span class="pre">trimesh[all]</span></code> which is run in a multi-stage build to avoid including intermediate files in the final image.</p>
+<p>They run as the non-root user <code class="docutils literal notranslate"><span class="pre">user</span></code> and the working directory is <code class="docutils literal notranslate"><span class="pre">/home/user</span></code>. A minimal docker file could look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">trimesh</span><span class="o">/</span><span class="n">trimesh</span><span class="p">:</span><span class="n">latest</span>
+
+<span class="n">COPY</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="o">.</span>
+<span class="n">RUN</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="n">COPY</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span> <span class="o">.</span>
+<span class="n">CMD</span> <span class="n">python</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Which you could then save as the file <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> and build with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">.</span> <span class="o">-</span><span class="n">t</span> <span class="n">example</span>
+<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">t</span> <span class="n">example</span>
+</pre></div>
+</div>
+</section>
+<section id="building-trimesh-images">
+<h2>Building Trimesh Images<a class="headerlink" href="#building-trimesh-images" title="Permalink to this heading"></a></h2>
+<p>Trimesh is using a multistage build to avoid copying in things like <code class="docutils literal notranslate"><span class="pre">g++</span></code>, so you have to explicitly specify that you want to build the <code class="docutils literal notranslate"><span class="pre">output</span></code> target. You also probably need to enable BuildKit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DOCKER_BUILDKIT</span><span class="o">=</span><span class="mi">1</span> <span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">target</span> <span class="n">output</span> <span class="o">-</span><span class="n">t</span> <span class="n">trimesh</span><span class="o">/</span><span class="n">trimesh</span><span class="p">:</span><span class="n">latest</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>There is also a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> which enables Buildkit, tags the versioned images, and provides access to other targets like <code class="docutils literal notranslate"><span class="pre">test</span></code> and <code class="docutils literal notranslate"><span class="pre">docs</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># will list the available options</span>
+<span class="n">make</span> <span class="n">help</span>
+
+<span class="c1"># will build and tag a `trimesh/trimesh:latest` image</span>
+<span class="c1"># and also tag it with semantic version and git hash</span>
+<span class="n">make</span> <span class="n">build</span>
+
+<span class="c1"># will build trimesh images and then in a different</span>
+<span class="c1"># build stage install the testing requirements and</span>
+<span class="c1"># run all of trimesh&#39;s unit tests inside the image</span>
+<span class="n">make</span> <span class="n">test</span>
+
+<span class="c1"># will build trimesh&#39;s docs inside the image and then</span>
+<span class="c1"># eject the results into the `./html` directory</span>
+<span class="n">make</span> <span class="n">docs</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing To Trimesh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="trimesh.html" class="btn btn-neutral float-right" title="trimesh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Michael Dawson-Haggerty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161434837-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-161434837-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>trimesh.exchange &mdash; trimesh 3.18.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trimesh.exchange.binvox" href="trimesh.exchange.binvox.html" />
+    <link rel="prev" title="trimesh" href="trimesh.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> trimesh
+          </a>
+              <div class="version">
+                3.18.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="http://github.com/mikedh/trimesh">Github</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="trimesh.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">trimesh.exchange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html">trimesh.exchange.binvox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.dae.html">trimesh.exchange.dae</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.export.html">trimesh.exchange.export</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.gltf.html">trimesh.exchange.gltf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.load.html">trimesh.exchange.load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.misc.html">trimesh.exchange.misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.obj.html">trimesh.exchange.obj</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.off.html">trimesh.exchange.off</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.openctm.html">trimesh.exchange.openctm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.ply.html">trimesh.exchange.ply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.stl.html">trimesh.exchange.stl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.threedxml.html">trimesh.exchange.threedxml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.threemf.html">trimesh.exchange.threemf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.urdf.html">trimesh.exchange.urdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.xaml.html">trimesh.exchange.xaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.xyz.html">trimesh.exchange.xyz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">trimesh/exchange</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interfaces.html">trimesh.interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.path.html">trimesh.path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.ray.html">trimesh.ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resources.html">trimesh.resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.scene.html">trimesh.scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.viewer.html">trimesh.viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.visual.html">trimesh.visual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.voxel.html">trimesh.voxel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.base.html">trimesh.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.boolean.html">trimesh.boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.bounds.html">trimesh.bounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.caching.html">trimesh.caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.collision.html">trimesh.collision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.comparison.html">trimesh.comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.constants.html">trimesh.constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.convex.html">trimesh.convex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.creation.html">trimesh.creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.curvature.html">trimesh.curvature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.decomposition.html">trimesh.decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exceptions.html">trimesh.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.geometry.html">trimesh.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.graph.html">trimesh.graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.grouping.html">trimesh.grouping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.inertia.html">trimesh.inertia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.integrate.html">trimesh.integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.intersections.html">trimesh.intersections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.interval.html">trimesh.interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.nsphere.html">trimesh.nsphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.parent.html">trimesh.parent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.permutate.html">trimesh.permutate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.points.html">trimesh.points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.poses.html">trimesh.poses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.primitives.html">trimesh.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.proximity.html">trimesh.proximity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.registration.html">trimesh.registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.remesh.html">trimesh.remesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.rendering.html">trimesh.rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.repair.html">trimesh.repair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.resolvers.html">trimesh.resolvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.sample.html">trimesh.sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.schemas.html">trimesh.schemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.smoothing.html">trimesh.smoothing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.transformations.html">trimesh.transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.triangles.html">trimesh.triangles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.units.html">trimesh.units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.util.html">trimesh.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.version.html">trimesh.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#https-github-com-mikedh-trimesh">https://github.com/mikedh/trimesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.PointCloud"><code class="docutils literal notranslate"><span class="pre">PointCloud</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.Scene"><code class="docutils literal notranslate"><span class="pre">Scene</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.Trimesh"><code class="docutils literal notranslate"><span class="pre">Trimesh</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.available_formats"><code class="docutils literal notranslate"><span class="pre">available_formats()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.load_mesh"><code class="docutils literal notranslate"><span class="pre">load_mesh()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.load_path"><code class="docutils literal notranslate"><span class="pre">load_path()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.load_remote"><code class="docutils literal notranslate"><span class="pre">load_remote()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.transform_points"><code class="docutils literal notranslate"><span class="pre">transform_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.html#trimesh.unitize"><code class="docutils literal notranslate"><span class="pre">unitize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">trimesh</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="trimesh.html">trimesh</a></li>
+      <li class="breadcrumb-item active">trimesh.exchange</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/mikedh/trimesh/blob/main/docs/trimesh.exchange.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="trimesh-exchange">
+<h1>trimesh.exchange<a class="headerlink" href="#trimesh-exchange" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.binvox.html">trimesh.exchange.binvox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvox"><code class="docutils literal notranslate"><span class="pre">Binvox</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvox.rle_data"><code class="docutils literal notranslate"><span class="pre">Binvox.rle_data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvox.scale"><code class="docutils literal notranslate"><span class="pre">Binvox.scale</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvox.shape"><code class="docutils literal notranslate"><span class="pre">Binvox.shape</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvox.translate"><code class="docutils literal notranslate"><span class="pre">Binvox.translate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvoxer"><code class="docutils literal notranslate"><span class="pre">Binvoxer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvoxer.SUPPORTED_INPUT_TYPES"><code class="docutils literal notranslate"><span class="pre">Binvoxer.SUPPORTED_INPUT_TYPES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvoxer.SUPPORTED_OUTPUT_TYPES"><code class="docutils literal notranslate"><span class="pre">Binvoxer.SUPPORTED_OUTPUT_TYPES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvoxer.__init__"><code class="docutils literal notranslate"><span class="pre">Binvoxer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.Binvoxer.file_type"><code class="docutils literal notranslate"><span class="pre">Binvoxer.file_type</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.binvox_bytes"><code class="docutils literal notranslate"><span class="pre">binvox_bytes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.binvox_header"><code class="docutils literal notranslate"><span class="pre">binvox_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.export_binvox"><code class="docutils literal notranslate"><span class="pre">export_binvox()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.load_binvox"><code class="docutils literal notranslate"><span class="pre">load_binvox()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.parse_binvox"><code class="docutils literal notranslate"><span class="pre">parse_binvox()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.parse_binvox_header"><code class="docutils literal notranslate"><span class="pre">parse_binvox_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.voxel_from_binvox"><code class="docutils literal notranslate"><span class="pre">voxel_from_binvox()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.binvox.html#trimesh.exchange.binvox.voxelize_mesh"><code class="docutils literal notranslate"><span class="pre">voxelize_mesh()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.dae.html">trimesh.exchange.dae</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.dae.html#trimesh.exchange.dae.export_collada"><code class="docutils literal notranslate"><span class="pre">export_collada()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.dae.html#trimesh.exchange.dae.load_collada"><code class="docutils literal notranslate"><span class="pre">load_collada()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.dae.html#trimesh.exchange.dae.load_zae"><code class="docutils literal notranslate"><span class="pre">load_zae()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.export.html">trimesh.exchange.export</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.export.html#trimesh.exchange.export.export_dict"><code class="docutils literal notranslate"><span class="pre">export_dict()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.export.html#trimesh.exchange.export.export_dict64"><code class="docutils literal notranslate"><span class="pre">export_dict64()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.export.html#trimesh.exchange.export.export_json"><code class="docutils literal notranslate"><span class="pre">export_json()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.export.html#trimesh.exchange.export.export_mesh"><code class="docutils literal notranslate"><span class="pre">export_mesh()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.export.html#trimesh.exchange.export.export_msgpack"><code class="docutils literal notranslate"><span class="pre">export_msgpack()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.export.html#trimesh.exchange.export.export_scene"><code class="docutils literal notranslate"><span class="pre">export_scene()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.export.html#trimesh.exchange.export.scene_to_dict"><code class="docutils literal notranslate"><span class="pre">scene_to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.gltf.html">trimesh.exchange.gltf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.gltf.html#gltf-py">gltf.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.gltf.html#trimesh.exchange.gltf.export_glb"><code class="docutils literal notranslate"><span class="pre">export_glb()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.gltf.html#trimesh.exchange.gltf.export_gltf"><code class="docutils literal notranslate"><span class="pre">export_gltf()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.gltf.html#trimesh.exchange.gltf.get_schema"><code class="docutils literal notranslate"><span class="pre">get_schema()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.gltf.html#trimesh.exchange.gltf.load_glb"><code class="docutils literal notranslate"><span class="pre">load_glb()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.gltf.html#trimesh.exchange.gltf.load_gltf"><code class="docutils literal notranslate"><span class="pre">load_gltf()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.gltf.html#trimesh.exchange.gltf.specular_to_pbr"><code class="docutils literal notranslate"><span class="pre">specular_to_pbr()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.gltf.html#trimesh.exchange.gltf.validate"><code class="docutils literal notranslate"><span class="pre">validate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.load.html">trimesh.exchange.load</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.load.html#trimesh.exchange.load.available_formats"><code class="docutils literal notranslate"><span class="pre">available_formats()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.load.html#trimesh.exchange.load.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.load.html#trimesh.exchange.load.load_compressed"><code class="docutils literal notranslate"><span class="pre">load_compressed()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.load.html#trimesh.exchange.load.load_kwargs"><code class="docutils literal notranslate"><span class="pre">load_kwargs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.load.html#trimesh.exchange.load.load_mesh"><code class="docutils literal notranslate"><span class="pre">load_mesh()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.load.html#trimesh.exchange.load.load_remote"><code class="docutils literal notranslate"><span class="pre">load_remote()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.load.html#trimesh.exchange.load.mesh_formats"><code class="docutils literal notranslate"><span class="pre">mesh_formats()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.load.html#trimesh.exchange.load.parse_file_args"><code class="docutils literal notranslate"><span class="pre">parse_file_args()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.misc.html">trimesh.exchange.misc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.misc.html#trimesh.exchange.misc.load_dict"><code class="docutils literal notranslate"><span class="pre">load_dict()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.misc.html#trimesh.exchange.misc.load_meshio"><code class="docutils literal notranslate"><span class="pre">load_meshio()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.misc.html#trimesh.exchange.misc.load_msgpack"><code class="docutils literal notranslate"><span class="pre">load_msgpack()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.obj.html">trimesh.exchange.obj</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.obj.html#trimesh.exchange.obj.export_obj"><code class="docutils literal notranslate"><span class="pre">export_obj()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.obj.html#trimesh.exchange.obj.load_obj"><code class="docutils literal notranslate"><span class="pre">load_obj()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.obj.html#trimesh.exchange.obj.parse_mtl"><code class="docutils literal notranslate"><span class="pre">parse_mtl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.off.html">trimesh.exchange.off</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.off.html#trimesh.exchange.off.export_off"><code class="docutils literal notranslate"><span class="pre">export_off()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.off.html#trimesh.exchange.off.load_off"><code class="docutils literal notranslate"><span class="pre">load_off()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.openctm.html">trimesh.exchange.openctm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.openctm.html#trimesh.exchange.openctm.load_ctm"><code class="docutils literal notranslate"><span class="pre">load_ctm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.ply.html">trimesh.exchange.ply</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.add_attributes_to_data_array"><code class="docutils literal notranslate"><span class="pre">add_attributes_to_data_array()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.add_attributes_to_dtype"><code class="docutils literal notranslate"><span class="pre">add_attributes_to_dtype()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.add_attributes_to_header"><code class="docutils literal notranslate"><span class="pre">add_attributes_to_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.assert_attributes_valid"><code class="docutils literal notranslate"><span class="pre">assert_attributes_valid()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.element_colors"><code class="docutils literal notranslate"><span class="pre">element_colors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.elements_to_kwargs"><code class="docutils literal notranslate"><span class="pre">elements_to_kwargs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.export_draco"><code class="docutils literal notranslate"><span class="pre">export_draco()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.export_ply"><code class="docutils literal notranslate"><span class="pre">export_ply()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.load_draco"><code class="docutils literal notranslate"><span class="pre">load_draco()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.load_element_different"><code class="docutils literal notranslate"><span class="pre">load_element_different()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.load_element_single"><code class="docutils literal notranslate"><span class="pre">load_element_single()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.load_ply"><code class="docutils literal notranslate"><span class="pre">load_ply()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.numpy_type_to_ply_type"><code class="docutils literal notranslate"><span class="pre">numpy_type_to_ply_type()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.parse_header"><code class="docutils literal notranslate"><span class="pre">parse_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.ply_ascii"><code class="docutils literal notranslate"><span class="pre">ply_ascii()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.ply.html#trimesh.exchange.ply.ply_binary"><code class="docutils literal notranslate"><span class="pre">ply_binary()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.stl.html">trimesh.exchange.stl</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.stl.html#trimesh.exchange.stl.HeaderError"><code class="docutils literal notranslate"><span class="pre">HeaderError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.stl.html#trimesh.exchange.stl.export_stl"><code class="docutils literal notranslate"><span class="pre">export_stl()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.stl.html#trimesh.exchange.stl.export_stl_ascii"><code class="docutils literal notranslate"><span class="pre">export_stl_ascii()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.stl.html#trimesh.exchange.stl.load_stl"><code class="docutils literal notranslate"><span class="pre">load_stl()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.stl.html#trimesh.exchange.stl.load_stl_ascii"><code class="docutils literal notranslate"><span class="pre">load_stl_ascii()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.stl.html#trimesh.exchange.stl.load_stl_binary"><code class="docutils literal notranslate"><span class="pre">load_stl_binary()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.threedxml.html">trimesh.exchange.threedxml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.threedxml.html#threedxml-py">threedxml.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.threedxml.html#trimesh.exchange.threedxml.load_3DXML"><code class="docutils literal notranslate"><span class="pre">load_3DXML()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.threedxml.html#trimesh.exchange.threedxml.print_element"><code class="docutils literal notranslate"><span class="pre">print_element()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.threemf.html">trimesh.exchange.threemf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.threemf.html#trimesh.exchange.threemf.export_3MF"><code class="docutils literal notranslate"><span class="pre">export_3MF()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.threemf.html#trimesh.exchange.threemf.load_3MF"><code class="docutils literal notranslate"><span class="pre">load_3MF()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.urdf.html">trimesh.exchange.urdf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.urdf.html#trimesh.exchange.urdf.export_urdf"><code class="docutils literal notranslate"><span class="pre">export_urdf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.xaml.html">trimesh.exchange.xaml</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.xaml.html#xaml-py">xaml.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.xaml.html#trimesh.exchange.xaml.load_XAML"><code class="docutils literal notranslate"><span class="pre">load_XAML()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="trimesh.exchange.xyz.html">trimesh.exchange.xyz</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.xyz.html#trimesh.exchange.xyz.export_xyz"><code class="docutils literal notranslate"><span class="pre">export_xyz()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trimesh.exchange.xyz.html#trimesh.exchange.xyz.load_xyz"><code class="docutils literal notranslate"><span class="pre">load_xyz()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<span class="target" id="module-trimesh.exchange"></span><section id="id1">
+<h2>trimesh/exchange<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>Contains the importers and exporters for various mesh formats.</p>
+<p>Note that <em>you should probably not be using these directly</em>, if
+you call <cite>trimesh.load</cite> it will then call and wrap the result
+of the various loaders:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">mesh</span> <span class="pre">=</span> <span class="pre">trimesh.load(file_name)</span>
+<span class="pre">`</span></code></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="trimesh.html" class="btn btn-neutral float-left" title="trimesh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="trimesh.exchange.binvox.html" class="btn btn-neutral float-right" title="trimesh.exchange.binvox" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Michael Dawson-Haggerty.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161434837-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-161434837-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
